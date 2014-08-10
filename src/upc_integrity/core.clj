@@ -8,7 +8,7 @@
 (defn upc-sum
   "Sums all the real values of the upc."
   [upc]
-  (apply + (map real-value-of upc)))
+  (reduce + (map real-value-of upc)))
 
 (defn check-digit-of
   "Returns the check digit of the upc."
