@@ -1,14 +1,21 @@
 (ns upc-integrity.core)
 
+(defn get-int
+  "Casts a char to an int."
+  [character]
+  (read-string (str character)))
+
 (defn real-value-of
   "Returns the real value of the digit."
-  [digit]
-  1)
+  [index digit]
+  (if (even? (+ index 1))
+    (get-int digit)
+    (* (get-int digit) 3)))
 
 (defn upc-sum
   "Sums all the real values of the upc."
   [upc]
-  (reduce + (map real-value-of upc)))
+  (reduce + (keep-indexed real-value-of upc)))
 
 (defn check-digit-of
   "Returns the check digit of the upc."
@@ -19,5 +26,4 @@
   "Checks whether the upc is valid or not."
   [upc]
   (if (= (count upc) 12)
-    (= (check-digit-of upc) (last upc))
-    false))
+    (= (check-digit-of (take 11 upc)) (get-int (last upc)))))

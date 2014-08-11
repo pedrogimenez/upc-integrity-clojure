@@ -1,7 +1,7 @@
-UPC Integrity validator written in Clojure
+UPC integrity checker
 ===
 
-Just a Clojure library I've tried to write while learning Clojure :sparkling_heart:
+Just a Clojure library I wrote while learning Clojure.
 
 <p align="center">
   <img src=http://www.reactiongifs.com/r/werd.gif>
@@ -10,24 +10,22 @@ Just a Clojure library I've tried to write while learning Clojure :sparkling_hea
 Usage
 ------
 
-It's not working but you can try to use it, lol.
-
 ```clojure
 (require 'upc-integrity.core)
+
 (upc-integrity.core/check-upc-integrity "013800151735") ; => true
 ```
 
 Tests
 -----
 
-Just run:
+Currenty, I'm using `lein test` though is kinda slow.
 
 ```bash
 $ lein test
 ```
 
-btw, they're failing :grin:
-
 Is it done?
 -----------
-No way :wrench:.
+
+Yup! :sparkles:
